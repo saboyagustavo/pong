@@ -47,6 +47,20 @@ function update(deltaTiming) {
   ball.position.x += ball.velocity.x * deltaTiming;
   ball.position.y += ball.velocity.y * deltaTiming;
 
+  //detect if the ball touches the any corner of the screen
+  if (
+    ball.position.x < 0 ||
+    ball.position.x > canvas.width
+  ) {
+    ball.velocity.x *= -1;
+  }
+  if (
+    ball.position.y < 0 ||
+    ball.position.y > canvas.height
+  ) {
+    ball.velocity.y *= -1;
+  }
+
   context.fillStyle = '#000000';
   context.fillRect(
     0,
